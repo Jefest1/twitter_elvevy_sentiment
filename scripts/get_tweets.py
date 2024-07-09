@@ -20,7 +20,7 @@ api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
 def get_elevy_tweets():
     query = "e-levy"
-    max_tweets = 10
+    max_tweets = 5
     tweets = []
 
     for tweet in tweepy.Cursor(api.search, q=query, lang="en", tweet_mode="extended").items(max_tweets):
@@ -41,3 +41,4 @@ elevy_tweets = get_elevy_tweets()
 
 
 df = pd.DataFrame(elevy_tweets, columns=elevy_tweets.index)
+print(df)
